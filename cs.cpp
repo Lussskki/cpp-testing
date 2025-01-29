@@ -2,27 +2,39 @@
 using namespace std;
 
 int main() {
-  int x, y, result;  
-  char operation;
+    char op;
+    float num1, num2;
 
-  cout << "Enter math operator (+ or -): ";
-  cin >> operation;  // To store the operator
+    // Prompt the user to enter an operator
+    cout << "Enter operator (+, -, *, /): ";
+    cin >> op;
 
-  cout << "Enter first number: ";
-  cin >> x;
+    // Prompt the user to enter two numbers
+    cout << "Enter two numbers: ";
+    cin >> num1 >> num2;
 
-  cout << "Enter second number: ";
-  cin >> y;
+    // Perform the operation based on the operator
+    switch(op) {
+        case '+':
+            cout << "Result: " << num1 + num2;
+            break;
+        case '-':
+            cout << "Result: " << num1 - num2;
+            break;
+        case '*':
+            cout << "Result: " << num1 * num2;
+            break;
+        case '/':
+            if (num2 != 0)
+                cout << "Result: " << num1 / num2;
+            else
+                cout << "Error! Division by zero is not allowed.";
+            break;
+        default:
+            // If the operator is not one of the above
+            cout << "Error! Invalid operator.";
+            break;
+    }
 
-  if (operation == '+') {
-    result = x + y;
-  } else if (operation == '-') {
-    result = x - y;
-  } else {
-    cout << "Invalid operator!" << endl;
-    return 1; // Exit early if the operator is invalid
-  }
-
-  cout << "Result: " << result << endl;
-  return 0;
+    return 0;
 }
